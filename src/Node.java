@@ -1,11 +1,14 @@
 import java.util.Objects;
 
-public class Node<E extends Comparable<? super E>> {
+public class Node <E extends Comparable<? super E>> {
 
     private final E value;
 
-    private Node<E> leftChild;
-    private Node<E> rightChild;
+
+    public Node leftChild;
+    public Node rightChild;
+
+
 
     public Node(E value) {
         this.value = value;
@@ -59,15 +62,6 @@ public class Node<E extends Comparable<? super E>> {
                 '}';
     }
 
-    public static boolean isBalanced(Node node) {
-        return (node == null) ||
-                isBalanced(node.leftChild) &&
-                        isBalanced(node.rightChild) &&
-                        Math.abs(height(node.leftChild) - height(node.rightChild)) <= 1;
-    }
 
-    private static int height(Node node) {
-        return node == null ? 0 : 1 + Math.max(height(node.leftChild), height(node.rightChild));
 
     }
-}
